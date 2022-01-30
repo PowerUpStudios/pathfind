@@ -6,5 +6,6 @@ namespace Pathfind {
         const spritepos = {x: sprite.x, y: sprite.y}
         console.log(spritepos)
         console.log(tilepos)
+        sprite.setPosition(tilepos.x, tilepos.y)
     }
 }
