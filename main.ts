@@ -1,6 +1,7 @@
 //%block="Pathfind" blockId="pathFind" color=#2da60b icon="\uf002"
 namespace Pathfind {
     function isWall(x: number, y: number, spriteimg: Image) {
+        console.log(spriteimg)
         let sprite = sprites.create(spriteimg)
         sprite.setPosition(x, y)
         const response = sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
