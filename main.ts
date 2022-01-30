@@ -13,16 +13,16 @@ namespace Pathfind {
             const difference_y = Math.abs(endpos.y - startpos.y)
             sprite.setPosition(startpos.x, startpos.y)
             for (let i = 0; i < difference_x + difference_y; i++) {
-                if (!isWall(sprite.x, sprite.y + 5, sprite.image) && endpos.y > sprite.y) {
+                if (!isWall(sprite.x - 20, sprite.y + 1, sprite.image) && endpos.y > sprite.y) {
                     sprite.setPosition(sprite.x, sprite.y + 1)
                     console.log(0)
-                } else if (!isWall(sprite.x, sprite.y - 5, sprite.image) && endpos.y < sprite.y) {
+                } else if (!isWall(sprite.x - 20, sprite.y - 1, sprite.image) && endpos.y < sprite.y) {
                     sprite.setPosition(sprite.x, sprite.y + 1)
                     console.log(1)
-                } else if (!isWall(sprite.x + 5, sprite.y, sprite.image) && endpos.x > sprite.x) {
+                } else if (!isWall(sprite.x + 1, sprite.y - 20, sprite.image) && endpos.x > sprite.x) {
                     sprite.setPosition(sprite.x + 1, sprite.y)
                     console.log(3)
-                } else if (!isWall(sprite.x - 5, sprite.y, sprite.image) && endpos.x < sprite.x) {
+                } else if (!isWall(sprite.x - 1, sprite.y - 20, sprite.image) && endpos.x < sprite.x) {
                     sprite.setPosition(sprite.x - 1, sprite.y)
                     console.log(4)
                 }
