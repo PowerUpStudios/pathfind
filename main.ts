@@ -4,5 +4,7 @@ namespace Pathfind {
     export function followTile(sprite: Sprite, tile: tiles.Location) {
         const tilepos = {x: tile.x, y: tile.y}
         const spritepos = {x: sprite.x, y: sprite.y}
+        console.log(spritepos)
+        console.log(tilepos)
     }
 }
