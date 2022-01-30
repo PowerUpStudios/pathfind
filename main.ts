@@ -31,6 +31,5 @@ namespace Pathfind {
         const pathfinder = new PathFinder(spritepos, tilepos, sprite)
         console.log(spritepos)
         console.log(tilepos)
-        sprite.setPosition(tilepos.x, tilepos.y)
     }
 }
