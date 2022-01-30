@@ -5,7 +5,9 @@ namespace Pathfind {
             f
         `)
         sprite.setPosition(x, y)
-        return sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
+        const response = sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
+        sprite.destroy()
+        return response
     }
     class PathFinder {
         constructor(startpos: {x: number, y: number}, endpos: {x: number, y: number}, sprite: Sprite, speed = 100) {
