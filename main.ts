@@ -8,7 +8,7 @@ namespace Pathfind {
         return sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
     }
     class PathFinder {
-        constructor(startpos: {x: number, y: number}, endpos: {x: number, y: number}, sprite: Sprite) {
+        constructor(startpos: {x: number, y: number}, endpos: {x: number, y: number}, sprite: Sprite, speed = 100) {
             const difference = (Math.abs((startpos.x + startpos.y) - (endpos.x, endpos.y)))
             sprite.setPosition(startpos.x, startpos.y)
             for (let i = 0; i < difference; i++) {
@@ -21,14 +21,15 @@ namespace Pathfind {
                 }else if (!isWall(sprite.x - 1, sprite.y)) {
                     sprite.setPosition(sprite.x - 1, sprite.y)
                 }
+                pause(speed)
             }
         }
     }
-    //%block="Set %sprite follow tile %tile" blockId="followTile" color=#2da60b icon="\uf002"
-    export function followTile(sprite: Sprite, tile: tiles.Location) {
+    //%block="Set %sprite follow tile %tile with speed %speed" blockId="followTile" color=#2da60b icon="\uf002"
+    export function followTile(sprite: Sprite, tile: tiles.Location, speed = 100) {
         const tilepos = {x: tile.x, y: tile.y}
         const spritepos = {x: sprite.x, y: sprite.y}
-        const pathfinder = new PathFinder(spritepos, tilepos, sprite)
+        const pathfinder = new PathFinder(spritepos, tilepos, sprite, speed)
         console.log(spritepos)
         console.log(tilepos)
     }
