@@ -5,7 +5,6 @@ namespace Pathfind {
         sprite.setPosition(x, y)
         const response = sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
         sprite.destroy()
-        console.log(response)
         return response
     }
     class PathFinder {
@@ -14,14 +13,18 @@ namespace Pathfind {
             const difference_y = Math.abs(endpos.y - startpos.y)
             sprite.setPosition(startpos.x, startpos.y)
             for (let i = 0; i < difference_x + difference_y; i++) {
-                if (!isWall(sprite.x, sprite.y + 2, sprite.image) && endpos.y > sprite.y) {
+                if (!isWall(sprite.x, sprite.y + 1, sprite.image) && endpos.y > sprite.y) {
                     sprite.setPosition(sprite.x, sprite.y + 1)
-                } else if (!isWall(sprite.x, sprite.y - 2, sprite.image) && endpos.y < sprite.y) {
+                    console.log(0)
+                } else if (!isWall(sprite.x, sprite.y - 1, sprite.image) && endpos.y < sprite.y) {
                     sprite.setPosition(sprite.x, sprite.y + 1)
-                } else if (!isWall(sprite.x + 2, sprite.y, sprite.image) && endpos.x > sprite.x) {
+                    console.log(1)
+                } else if (!isWall(sprite.x + 1, sprite.y, sprite.image) && endpos.x > sprite.x) {
                     sprite.setPosition(sprite.x + 1, sprite.y)
-                } else if (!isWall(sprite.x - 2, sprite.y, sprite.image) && endpos.x < sprite.x) {
+                    console.log(3)
+                } else if (!isWall(sprite.x - 1, sprite.y, sprite.image) && endpos.x < sprite.x) {
                     sprite.setPosition(sprite.x - 1, sprite.y)
+                    console.log(4)
                 }
                 pause(speed)
             }
