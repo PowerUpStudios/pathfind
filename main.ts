@@ -4,7 +4,8 @@ namespace Pathfind {
         let sprite = sprites.create(spriteimg)
         sprite.setPosition(x, y)
         const response = sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
-        //sprite.destroy()
+        sprite.destroy()
+        console.log(response)
         return response
     }
     class PathFinder {
