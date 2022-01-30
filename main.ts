@@ -1,9 +1,7 @@
 //%block="Pathfind" blockId="pathFind" color=#2da60b icon="\uf002"
 namespace Pathfind {
-    function isWall(x: number, y: number) {
-        let sprite = sprites.create(img`
-            f
-        `)
+    function isWall(x: number, y: number, spriteimg: Image) {
+        let sprite = sprites.create(spriteimg)
         sprite.setPosition(x, y)
         const response = sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
         sprite.destroy()
@@ -15,13 +13,13 @@ namespace Pathfind {
             const difference_y = Math.abs(endpos.y - startpos.y)
             sprite.setPosition(startpos.x, startpos.y)
             for (let i = 0; i < difference_x + difference_y; i++) {
-                if (!isWall(sprite.x, sprite.y + 1) && endpos.y > sprite.y) {
+                if (!isWall(sprite.x, sprite.y + 1, sprite.image) && endpos.y > sprite.y) {
                     sprite.setPosition(sprite.x, sprite.y + 1)
-                } else if (!isWall(sprite.x, sprite.y - 1) && endpos.y < sprite.y) {
+                } else if (!isWall(sprite.x, sprite.y - 1, sprite.image) && endpos.y < sprite.y) {
                     sprite.setPosition(sprite.x, sprite.y + 1)
-                } else if (!isWall(sprite.x + 1, sprite.y) && endpos.x > sprite.x) {
+                } else if (!isWall(sprite.x + 1, sprite.y, sprite.image) && endpos.x > sprite.x) {
                     sprite.setPosition(sprite.x + 1, sprite.y)
-                } else if (!isWall(sprite.x - 1, sprite.y) && endpos.x < sprite.x) {
+                } else if (!isWall(sprite.x - 1, sprite.y, sprite.image) && endpos.x < sprite.x) {
                     sprite.setPosition(sprite.x - 1, sprite.y)
                 }
                 pause(speed)
