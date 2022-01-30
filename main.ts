@@ -2,6 +2,7 @@
 namespace Pathfind {
     function isWall(x: number, y: number, spriteimg: Image) {
         let sprite = sprites.create(spriteimg)
+        sprite.image.replace(3, 1)
         sprite.setPosition(x, y)
         const response = sprite.isHittingTile(CollisionDirection.Bottom) || sprite.isHittingTile(CollisionDirection.Left) || sprite.isHittingTile(CollisionDirection.Right) || sprite.isHittingTile(CollisionDirection.Top)
         return response
