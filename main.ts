@@ -9,9 +9,10 @@ namespace Pathfind {
     }
     class PathFinder {
         constructor(startpos: {x: number, y: number}, endpos: {x: number, y: number}, sprite: Sprite, speed = 100) {
-            const difference = (Math.abs((startpos.x + startpos.y) - (endpos.x, endpos.y)))
+            const difference_x = Math.abs(endpos.x - startpos.x)
+            const difference_y = Math.abs(endpos.y - startpos.y)
             sprite.setPosition(startpos.x, startpos.y)
-            for (let i = 0; i < difference; i++) {
+            for (let i = 0; i < difference_x + difference_y; i++) {
                 if (!isWall(sprite.x, sprite.y + 1) && endpos.y > startpos.y) {
                     sprite.setPosition(sprite.x, sprite.y + 1)
                 }else if (!isWall(sprite.x, sprite.y - 1) && endpos.y < startpos.y) {
